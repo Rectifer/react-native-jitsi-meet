@@ -32,14 +32,16 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void call(String url, ReadableMap userInfo) {
+    public void call(String url, ReadableMap userInfo, ReadableMap meetOptions) {
         UiThreadUtil.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+
+                // }
                 if (mJitsiMeetViewReference.getJitsiMeetView() != null) {
                     RNJitsiMeetUserInfo _userInfo = new RNJitsiMeetUserInfo();
                     if (userInfo != null) {
-                        if (userInfo.hasKey("displayName")) {
+                          if (userInfo.hasKey("displayName")) {
                             _userInfo.setDisplayName(userInfo.getString("displayName"));
                           }
                           if (userInfo.hasKey("email")) {
@@ -53,10 +55,32 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             }
                           }
                     }
+
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
-                            .setAudioOnly(false)
+                            .setSubject(meetOptions.getString("subject"))
+                            .setToken(meetOptions.getString("token"))
+                            .setAudioMuted(meetOptions.getBoolean("setAudioMuted"))
+                            .setVideoMuted(meetOptions.getBoolean("setVideoMuted"))
                             .setUserInfo(_userInfo)
+
+
+                            .setFeatureFlag("pip.enabled", true)
+                            .setFeatureFlag("add-people.enabled", false)
+                            .setFeatureFlag("calendar.enabled", false)
+                            .setFeatureFlag("close-captions.enabled", false)
+                            .setFeatureFlag("kick-out.enabled", false)
+                            .setFeatureFlag("meeting-name.enabled", false)
+                            .setFeatureFlag("meeting-password.enabled", false)
+                            .setFeatureFlag("recording.enabled", false)
+                            .setFeatureFlag("live-streaming.enabled", false)
+                            .setFeatureFlag("call-integration.enabled", meetOptions.getBoolean("call"))
+                            .setFeatureFlag("conference-timer.enabled", meetOptions.getBoolean("timer"))
+                            .setFeatureFlag("raise-hand.enabled", meetOptions.getBoolean("raiseHand"))
+                            .setFeatureFlag("toolbox.alwaysVisible", meetOptions.getBoolean("toolbox"))
+                            .setFeatureFlag("video-share.enabled",false)
+                            .setFeatureFlag("mute-everyone.enabled", meetOptions.getBoolean("mute-everyone"))
+                            .setFeatureFlag("lobby.enabled", meetOptions.getBoolean("lobby"))
                             .build();
                     mJitsiMeetViewReference.getJitsiMeetView().join(options);
                 }
@@ -108,4 +132,16 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
             }
         });
     }
+
+    // @ReactMethod
+    // public void dispose() {
+    //     UiThreadUtil.runOnUiThread(new Runnable() {
+    //         @Override
+    //         public void dispose() {
+    //             if(mJitsiMeetViewReference.getJitsiMeetView() != null) {
+    //                 mJitsiMeetViewReference.getJitsiMeetView().dispose();
+    //             }
+    //         }
+    //     });
+    // }
 }

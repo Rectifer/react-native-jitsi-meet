@@ -2,6 +2,9 @@ package com.reactnativejitsimeet;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 

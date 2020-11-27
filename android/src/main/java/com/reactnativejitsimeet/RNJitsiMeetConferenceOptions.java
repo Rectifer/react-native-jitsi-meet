@@ -181,6 +181,90 @@ public class RNJitsiMeetConferenceOptions implements Parcelable {
             return this;
         }
 
+        // public Builder setAddPeople(boolean enabled) {
+        //     this.featureFlags.putBoolean("add-people.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setCalendar(boolean enabled) {
+        //     this.featureFlags.putBoolean("calendar.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setCall(boolean enabled) {
+        //     this.featureFlags.putBoolean("call-integration.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setCaption(boolean enabled) {
+        //     this.featureFlags.putBoolean("close-captions.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setInvite(boolean enabled) {
+        //     this.featureFlags.putBoolean("invite.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setIosRecording(boolean enabled) {
+        //     this.featureFlags.putBoolean("ios.recording.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setLiveStreaming(boolean enabled) {
+        //     this.featureFlags.putBoolean("live-streaming.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setMeetingName(boolean enabled) {
+        //     this.featureFlags.putBoolean("meeting-name.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setMeetingPassword(boolean enabled) {
+        //     this.featureFlags.putBoolean("meeting-password.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setRaiseHand(boolean enabled) {
+        //     this.featureFlags.putBoolean("raise-hand.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setRecording(boolean enabled) {
+        //     this.featureFlags.putBoolean("recording.enabled", enabled);
+
+        //     return this;
+        // }
+
+        // public Builder setTileView(boolean enabled) {
+        //     this.featureFlags.putBoolean("tile-view.enabled", enabled);
+
+        //     return this;
+        // }
+        
+        // public Builder setConferenceTime(boolean enabled) {
+        //     this.featureFlags.putBoolean("conference-timer.enabled", enabled);
+
+        //     return this;
+        // }
+
+        //  public Builder setToolbox(boolean enabled) {
+        //     this.featureFlags.putBoolean("toolbox.alwaysVisible", enabled);
+
+        //     return this;
+        // }
+
         public Builder setFeatureFlag(String flag, boolean value) {
             this.featureFlags.putBoolean(flag, value);
 

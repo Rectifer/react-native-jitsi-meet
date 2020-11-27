@@ -14,6 +14,7 @@ public class RNJitsiMeetUserInfo {
      * User's display name.
      */
     private String displayName;
+    // private String id;
 
     /**
      * User's email address.
@@ -29,6 +30,10 @@ public class RNJitsiMeetUserInfo {
 
     public RNJitsiMeetUserInfo(Bundle b) {
         super();
+
+        // if(b.containsKey("id")) {
+        //     id = b.getString("id");
+        // }
 
         if (b.containsKey("displayName")) {
             displayName = b.getString("displayName");
@@ -71,8 +76,20 @@ public class RNJitsiMeetUserInfo {
         this.avatar = avatar;
     }
 
+    // public String getId() {
+    //     return id;
+    // }
+
+    // public void setId(String Id) {
+    //     this.id = Id;
+    // }
+
     Bundle asBundle() {
         Bundle b = new Bundle();
+
+        // if(id != null) {
+        //     b.putString("id", id);
+        // }
 
         if (displayName != null) {
             b.putString("displayName", displayName);
