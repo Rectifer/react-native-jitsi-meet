@@ -67,6 +67,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
 
                             .setFeatureFlag("pip.enabled", true)
                             .setFeatureFlag("add-people.enabled", false)
+                            .setFeatureFlag("invite.enabled", false)
                             .setFeatureFlag("calendar.enabled", false)
                             .setFeatureFlag("close-captions.enabled", false)
                             .setFeatureFlag("kick-out.enabled", false)
