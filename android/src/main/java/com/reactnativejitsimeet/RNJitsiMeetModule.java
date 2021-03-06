@@ -81,7 +81,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setFeatureFlag("toolbox.alwaysVisible", meetOptions.getBoolean("toolbox"))
                             .setFeatureFlag("video-share.enabled",false)
                             .setFeatureFlag("mute-everyone.enabled", meetOptions.getBoolean("mute-everyone"))
-                            .setFeatureFlag("lobby.enabled", meetOptions.getBoolean("lobby"))
+                            .setFeatureFlag("lobby.enabled", false)
                             .build();
                     mJitsiMeetViewReference.getJitsiMeetView().join(options);
                 }
