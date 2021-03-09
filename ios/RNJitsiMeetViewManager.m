@@ -24,7 +24,7 @@ RCT_EXPORT_METHOD(initialize)
     RCTLogInfo(@"Initialize is deprecated in v2");
 }
 
-RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo, meetOptions:(NSDictionary *)meetOptions, meetFeatureFlags:(NSDictionary *)meetFeatureFlags)
+RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo meetOptions:(NSDictionary *)meetOptions meetFeatureFlags:(NSDictionary *)meetFeatureFlags)
 {
     RCTLogInfo(@"Load URL %@", urlString);
     JitsiMeetUserInfo * _userInfo = [[JitsiMeetUserInfo alloc] init];
