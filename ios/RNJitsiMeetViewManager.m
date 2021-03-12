@@ -24,7 +24,12 @@ RCT_EXPORT_METHOD(initialize)
     RCTLogInfo(@"Initialize is deprecated in v2");
 }
 
-RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo meetOptions:(NSDictionary *)meetOptions meetFeatureFlags:(NSDictionary *)meetFeatureFlags)
+RCT_EXPORT_METHOD(
+  call:(NSString *)urlString 
+  userInfo:(NSDictionary *)userInfo 
+  meetOptions:(NSDictionary *)meetOptions 
+  meetFeatureFlags:(NSDictionary *)meetFeatureFlags
+  )
 {
     RCTLogInfo(@"Load URL %@", urlString);
     JitsiMeetUserInfo * _userInfo = [[JitsiMeetUserInfo alloc] init];
@@ -50,19 +55,19 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo m
             builder.audioOnly = [[meetOptions objectForKey:@"audioOnly"] boolValue];
             builder.audioMuted = [[meetOptions objectForKey:@"audioMuted"] boolValue];
 
-            [builder setFeatureFlag:@"pip.enabled" withBoolean:[true]];
-            [builder setFeatureFlag:@"add-people.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"invite.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"calendar.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"close-captions.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"kick-out.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"meeting-name.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"meeting-password.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"recording.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"live-streaming.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"video-share.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"lobby.enabled" withBoolean:[false]];
-            [builder setFeatureFlag:@"lobby.enabled" withBoolean:[false]];
+            [builder setFeatureFlag:@"pip.enabled" withBoolean:true];
+            [builder setFeatureFlag:@"add-people.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"invite.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"calendar.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"close-captions.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"kick-out.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"meeting-name.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"meeting-password.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"recording.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"live-streaming.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"video-share.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"lobby.enabled" withBoolean:false];
+            [builder setFeatureFlag:@"lobby.enabled" withBoolean:false];
             [builder setFeatureFlag:@"call-integration.enabled" withBoolean:[[meetFeatureFlags objectForKey:@"call"] boolValue]];
             [builder setFeatureFlag:@"conference-timer.enabled" withBoolean:[[meetFeatureFlags objectForKey:@"timer"] boolValue]];
             [builder setFeatureFlag:@"raise-hand.enabled" withBoolean:[[meetFeatureFlags objectForKey:@"raiseHand"] boolValue]];
